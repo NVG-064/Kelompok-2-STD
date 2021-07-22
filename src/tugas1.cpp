@@ -214,7 +214,7 @@ int main(){
 
 
             case 4:
-                printf("Hapus data: ");
+                printf("Masukkan nilai indeks untuk dihapus datanya: ");
                 scanf("%d", &del);
                 hapus(&pohon, del);
                 break;
