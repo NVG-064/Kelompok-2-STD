@@ -152,7 +152,7 @@ int main(){
 
         switch (pil){
             case 1:
-                printf("Masukkan nilai indeks data disimpan: ");
+                printf("Masukkan nilai indeks pada data yang akan disimpan: ");
                 scanf("%d", &data);
                 cin.ignore();
                 cout << "Masukkan NIM: ";
@@ -214,7 +214,7 @@ int main(){
 
 
             case 4:
-                printf("Masukkan nilai indeks untuk dihapus datanya: ");
+                printf("Masukkan nilai indeks yang ingin dihapus: ");
                 scanf("%d", &del);
                 hapus(&pohon, del);
                 break;
