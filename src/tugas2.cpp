@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define N 8
+#define N 7
 #define UND INT_MAX
 
-#define M 7 // (maximum_vertex_value) - 1
+#define M 6 // (maximum_vertex_value) - 1
 
 // history count
 int dataHistory[M] = {};
@@ -45,14 +45,13 @@ int main()
 {
 	// Graph stored in the form of an adjacency Matrix
 	int graph[N][N] =
-	{{UND, 1, 2, 5, UND, UND, UND, UND},
-	{UND, UND, UND, UND, 4, 11, UND, UND},
-	{UND, UND, UND, UND, 9, 5, 16, UND},
-	{UND, UND, UND, UND, UND, UND, 2, UND},
-	{UND, UND, UND, UND, UND, UND, UND, 18},
-	{UND, UND, UND, UND, UND, UND, UND, 13},
-	{UND, UND, UND, UND, UND, UND, UND, 2},
-	{UND, UND, UND, UND, UND, UND, UND, UND}};
+	{{UND, 8, 15, UND, UND, UND, UND},
+	{UND, UND, 10, 21, 25, UND, UND},
+	{UND, UND, UND, 20, UND, 25, UND},
+	{UND, UND, UND, UND, 9, 10, 50},
+	{UND, UND, UND, UND, UND, UND, 21},
+	{UND, UND, UND, UND, UND, UND, 30},
+	{UND, UND, UND, UND, UND, UND, UND}};
 
     system("cls");
     cout << "\t\tJarak Terjauh menggunakan Metode Forward";
