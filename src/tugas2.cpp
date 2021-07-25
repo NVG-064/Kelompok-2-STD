@@ -36,6 +36,7 @@ int longestDistaceByForwardMethod(int graph[N][N]) {
 		}
 	}
 
+	// To return the value of cost after finishing their loop
 	return cost[0];
 }
 
@@ -55,8 +56,9 @@ int main()
     system("cls");
     cout << "\t\tJarak Terjauh menggunakan Metode Forward";
     cout << "\n\t\t\t     Oleh Kelompok 2\n\n";
-	cout << "Jarak terjauh: " << longestDistaceByForwardMethod(graph);
+	cout << "Jarak terjauh: " << longestDistaceByForwardMethod(graph); // Print out the longest distance (by using return)
 
+	// Print out the saved data
     cout << "\n\n";
     for (int x = M-1; x >= 0; x--){
         cout << "Hasil perhitungan cost ke-" << x+1 << ": " << dataHistory[x] << endl;
