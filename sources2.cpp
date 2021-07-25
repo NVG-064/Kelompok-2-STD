@@ -1,7 +1,10 @@
 // Source of this program:
 // https://programmersought.com/article/82696207317/
 
-#include<iostream.h>
+#include <iostream>
+
+using namespace std;
+
 const int N = 20;
 const int MAX = 1000;
 int arc[N][N];               
