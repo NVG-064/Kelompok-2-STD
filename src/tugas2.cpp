@@ -10,7 +10,7 @@ using namespace std;
 int dataHistory[M] = {};
 
 // Returns longest distance from 0 to N-1.
-int longestDistaceByForward(int graph[N][N]) {
+int longestDistaceByForwardMethod(int graph[N][N]) {
 
 	// cost[i] is going to store longest distance from node i to node N-1.
 	int cost[N];
@@ -56,7 +56,7 @@ int main()
     system("cls");
     cout << "\t\tJarak Terjauh menggunakan Metode Forward";
     cout << "\n\t\t\t     Oleh Kelompok 2\n\n";
-	cout << "Jarak terjauh: " << longestDistaceByForward(graph);
+	cout << "Jarak terjauh: " << longestDistaceByForwardMethod(graph);
 
     cout << "\n\n";
     for (int x = M-1; x >= 0; x--){
