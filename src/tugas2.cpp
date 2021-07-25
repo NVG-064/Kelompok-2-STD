@@ -1,78 +1,67 @@
-// Source of this program:
-// https://www.geeksforgeeks.org/multistage-graph-shortest-path/
-//
-// CPP program to find shortest distance
-// in a multistage graph.
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define N 8
-#define INF INT_MAX
+#define UND INT_MAX
 
-// Saved array
-int data[N] = {};
+#define M 7 // (maximum_vertex_value) - 1
 
-// Returns shortest distance from 0 to
-// N-1.
-int shortestDist(int graph[N][N]) {
+// history count
+int dataHistory[M] = {};
 
-	// dist[i] is going to store shortest
-	// distance from node i to node N-1.
-	int dist[N];
+// Returns longest distance from 0 to N-1.
+int longestDistaceByForward(int graph[N][N]) {
 
-	dist[N-1] = 0;
+	// cost[i] is going to store longest distance from node i to node N-1.
+	int cost[N];
 
-	// Calculating shortest path for
-	// rest of the nodes
+	cost[N-1] = 0;
+
+	// Calculating longest path for rest of the nodes
 	for (int i = N-2 ; i >= 0 ; i--)
 	{
 
-		// Initialize distance from i to
-		// destination (N-1)
-		dist[i] = 0;
+		// Initialize distance from i to destination (N-1)
+		cost[i] = 0;
 
-		// Check all nodes of next stages
-		// to find shortest distance from
-		// i to N-1.
+		// Check all nodes of next stages to find longest distance from i to N-1.
 		for (int j = i ; j < N ; j++)
 		{
 			// Reject if no edge exists
-			if (graph[i][j] == INF)
+			if (graph[i][j] == UND)
 				continue;
 
-			// We apply recursive equation to
-			// distance to target through j.
-			// and compare with minimum distance
-			// so far.
-			dist[i] = max(dist[i], graph[i][j] +
-										dist[j]);
-			data[i] = dist[i];
+			// We apply recursive equation to distance to target through j. and compare with minimum distance so far.
+			cost[i] = max(cost[i], graph[i][j] + cost[j]);
+            dataHistory[i] = cost[i]; // To save the history
 		}
 	}
 
-	return dist[0];
+	return cost[0];
 }
 
 // Driver code
 int main()
 {
-	// Graph stored in the form of an
-	// adjacency Matrix
+	// Graph stored in the form of an adjacency Matrix
 	int graph[N][N] =
-	{{INF, 1, 2, 5, INF, INF, INF, INF},
-	{INF, INF, INF, INF, 4, 11, INF, INF},
-	{INF, INF, INF, INF, 9, 5, 16, INF},
-	{INF, INF, INF, INF, INF, INF, 2, INF},
-	{INF, INF, INF, INF, INF, INF, INF, 18},
-	{INF, INF, INF, INF, INF, INF, INF, 13},
-	{INF, INF, INF, INF, INF, INF, INF, 2},
-	{INF, INF, INF, INF, INF, INF, INF, INF}};
+	{{UND, 1, 2, 5, UND, UND, UND, UND},
+	{UND, UND, UND, UND, 4, 11, UND, UND},
+	{UND, UND, UND, UND, 9, 5, 16, UND},
+	{UND, UND, UND, UND, UND, UND, 2, UND},
+	{UND, UND, UND, UND, UND, UND, UND, 18},
+	{UND, UND, UND, UND, UND, UND, UND, 13},
+	{UND, UND, UND, UND, UND, UND, UND, 2},
+	{UND, UND, UND, UND, UND, UND, UND, UND}};
 
-	cout << shortestDist(graph);
+    system("cls");
+    cout << "\t\tJarak Terjauh menggunakan Metode Forward";
+    cout << "\n\t\t\t     Oleh Kelompok 2\n\n";
+	cout << "Jarak terjauh: " << longestDistaceByForward(graph);
 
-	cout << "\n\n";
-	for (int x = 0; x < N; x++){
-		cout << data[x] << " <- ";
-	} 
+    cout << "\n\n";
+    for (int x = M-1; x >= 0; x--){
+        cout << "Hasil perhitungan cost ke-" << x+1 << ": " << dataHistory[x] << endl;
+    }
 	return 0;
 }
